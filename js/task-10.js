@@ -15,15 +15,17 @@ btnDestroy.addEventListener("click", destroyBoxes);
 function createBoxes() {
   const amount = inputEl.value;
   let boxSize = 20;
+  let fragment = document.createDocumentFragment();
   for (let i = 0; i < amount; i += 1) {
     const newEl = document.createElement("div");
     newEl.classList.add("newBox");
     newEl.style.width = boxSize + 10 + "px";
     newEl.style.height = boxSize + 10 + "px";
     newEl.style.backgroundColor = getRandomHexColor();
-    divBox.appendChild(newEl);
     boxSize += 10;
+    fragment.appendChild(newEl);
   }
+  divBox.appendChild(fragment);
 }
 
 function destroyBoxes() {
